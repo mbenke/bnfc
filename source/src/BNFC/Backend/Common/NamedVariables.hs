@@ -67,6 +67,7 @@ This is what this module does.
 
 module BNFC.Backend.Common.NamedVariables where
 
+import Prelude hiding((<>))
 import BNFC.CF
 import Data.Char (toLower)
 import Data.List (nub)

@@ -22,6 +22,7 @@
 
 module BNFC.Backend.CPP.PrettyPrinter (cf2CPPPrinter, prRender) where
 
+import Prelude hiding((<>))
 import BNFC.CF
 import BNFC.Utils ((+++))
 import BNFC.Backend.Common

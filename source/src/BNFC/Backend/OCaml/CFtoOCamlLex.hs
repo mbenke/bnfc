@@ -22,6 +22,7 @@
 
 module BNFC.Backend.OCaml.CFtoOCamlLex (cf2ocamllex) where
 
+import Prelude hiding((<>))
 import Control.Arrow ((&&&))
 import Data.List
 import Data.Char
@@ -135,7 +136,7 @@ userTokens :: CF -> [(String, String, String)]
 userTokens cf =
   let regName = map toLower . show in
   [(regName name, printRegOCaml reg, show name) | (name, reg) <- tokenPragmas cf]
-      
+
 
 
 -- | Make OCamlLex rule

@@ -39,6 +39,7 @@
 
 module BNFC.Backend.Java.CFtoJLex15 ( cf2jlex ) where
 
+import Prelude hiding((<>))
 import BNFC.CF
 import BNFC.Backend.Java.RegToJLex
 import BNFC.Utils (cstring)

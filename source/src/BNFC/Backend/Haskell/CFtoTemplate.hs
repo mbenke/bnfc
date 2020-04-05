@@ -20,6 +20,7 @@
 
 module BNFC.Backend.Haskell.CFtoTemplate (cf2Template) where
 
+import Prelude hiding((<>))
 import BNFC.Backend.Haskell.Utils (catvars)
 import BNFC.CF
 import BNFC.PrettyPrint

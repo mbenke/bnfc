@@ -5,6 +5,7 @@ module BNFC.Backend.Haskell.Utils
   , catvars
   ) where
 
+import Prelude hiding((<>))
 import Text.PrettyPrint
 import BNFC.CF (Cat(..), identCat, normCat)
 import BNFC.Utils (mkNames, NameStyle(..))
@@ -117,4 +118,3 @@ catvars = map text . mkNames hsReservedWords LowerCase . map var
   where
     var (ListCat c) = var c ++ "s"
     var xs          = show xs
-

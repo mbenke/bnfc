@@ -7,6 +7,7 @@ module BNFC.PrettyPrint
   , (<=>)
   ) where
 
+import Prelude hiding((<>))
 import Text.PrettyPrint
 
 -- | Pretty print separator with a dot

@@ -1,6 +1,7 @@
 module BNFC.Backend.Common (renderListSepByPrecedence) where
 -- Functions common to different backends
 
+import Prelude hiding((<>))
 import BNFC.PrettyPrint
 
 -- | Helper function for c-like languages that generates the code printing
@@ -30,4 +31,3 @@ renderListSepByPrecedence var render ss = "switch(" <> var <> ")" $$ codeblock 2
     ++ ["default" <:> render sep <>";" | let (_,sep) = last ss])
   where
     a <:> b = a <> ":" <+> b
-

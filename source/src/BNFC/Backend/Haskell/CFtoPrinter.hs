@@ -19,6 +19,7 @@
 
 module BNFC.Backend.Haskell.CFtoPrinter (cf2Printer, compareRules) where
 
+import Prelude hiding((<>))
 import BNFC.Backend.Haskell.Utils (hsReservedWords)
 import BNFC.CF
 import BNFC.Utils
@@ -278,4 +279,3 @@ mkRhs args its =
   mk args       (Right s : items)    = ("doc (showString" <+> text (show s) <> ")") : mk args items
   mk _          _                    = []
   prt c = "prt" <+> integer (precCat c)
-

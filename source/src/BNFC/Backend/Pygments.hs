@@ -7,6 +7,7 @@
  - -}
 module BNFC.Backend.Pygments where
 
+import Prelude hiding((<>))
 
 import AbsBNF (Reg(..))
 import BNFC.Backend.Base (mkfile, Backend)
@@ -154,4 +155,3 @@ pyRegex reg = case reg of
     escape c = [c]
     pyRegex' r@(RAlt{}) = parens (pyRegex r)
     pyRegex' r = pyRegex r
-

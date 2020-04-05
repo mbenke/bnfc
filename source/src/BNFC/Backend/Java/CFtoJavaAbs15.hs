@@ -46,6 +46,7 @@
 
 module BNFC.Backend.Java.CFtoJavaAbs15 (cf2JavaAbs, typename) where
 
+import Prelude hiding((<>))
 import BNFC.CF
 import BNFC.Utils((+++),(++++))
 import BNFC.Backend.Common.NamedVariables hiding (IVar, getVars, varName)

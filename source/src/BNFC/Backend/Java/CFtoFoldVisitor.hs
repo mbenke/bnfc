@@ -20,6 +20,7 @@
 
 module BNFC.Backend.Java.CFtoFoldVisitor (cf2FoldVisitor) where
 
+import Prelude hiding((<>))
 import BNFC.CF
 import BNFC.Backend.Java.CFtoJavaAbs15 (typename)
 import BNFC.Utils ((+++))
@@ -99,4 +100,3 @@ prCat user (cat,nt)
 --Just checks if something is a basic or user-defined type.
 isBasicType :: [UserDef] -> String -> Bool
 isBasicType user v = v `elem` (map show user ++ ["Integer","Character","String","Double"])
-

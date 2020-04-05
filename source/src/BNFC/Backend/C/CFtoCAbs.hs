@@ -41,6 +41,8 @@
 module BNFC.Backend.C.CFtoCAbs (cf2CAbs) where
 
 
+import Prelude hiding((<>))
+
 import BNFC.CF
 import BNFC.PrettyPrint
 import BNFC.Utils((+++))

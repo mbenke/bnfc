@@ -44,6 +44,8 @@
 
 module BNFC.Backend.CPP.STL.CFtoBisonSTL (cf2Bison, union) where
 
+import Prelude hiding((<>))
+
 import Data.Char (toLower,isUpper)
 import Data.List (nub, intercalate)
 import Data.Maybe (fromMaybe)

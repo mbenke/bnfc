@@ -40,6 +40,7 @@
 -}
 module BNFC.Backend.Java.CFtoVisitSkel15 (cf2VisitSkel) where
 
+import Prelude hiding((<>))
 import BNFC.CF
 import BNFC.Backend.Java.CFtoJavaAbs15 (typename)
 import BNFC.Utils ((+++))

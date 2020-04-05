@@ -41,6 +41,7 @@
 
 module BNFC.Backend.C.CFtoCPrinter (cf2CPrinter) where
 
+import Prelude hiding((<>))
 import BNFC.CF
 import BNFC.Utils ((+++))
 import BNFC.Backend.Common (renderListSepByPrecedence)

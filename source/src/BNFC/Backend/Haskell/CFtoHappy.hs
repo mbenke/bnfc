@@ -19,6 +19,7 @@
 
 module BNFC.Backend.Haskell.CFtoHappy where
 
+import Prelude hiding((<>))
 import Data.String (IsString(..))
 
 import BNFC.CF

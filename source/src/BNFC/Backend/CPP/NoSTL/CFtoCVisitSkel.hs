@@ -39,6 +39,7 @@
 
 module BNFC.Backend.CPP.NoSTL.CFtoCVisitSkel (cf2CVisitSkel) where
 
+import Prelude hiding((<>))
 import BNFC.CF
 import BNFC.Utils ((+++))
 import BNFC.Backend.Common.NamedVariables

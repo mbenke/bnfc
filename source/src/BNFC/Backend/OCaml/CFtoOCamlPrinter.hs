@@ -21,6 +21,7 @@
 
 module BNFC.Backend.OCaml.CFtoOCamlPrinter (cf2Printer) where
 
+import Prelude hiding((<>))
 import Data.Char(toLower)
 import Data.List (intersperse, sortBy)
 import Data.Maybe (fromJust)
@@ -226,4 +227,3 @@ mkRhs args its =
 prtFun :: Cat -> String
 prtFun (ListCat c) = prtFun c ++ "ListBNFC"
 prtFun c = "prt" ++ fixTypeUpper (normCat c)
-

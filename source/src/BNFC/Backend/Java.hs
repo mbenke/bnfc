@@ -33,8 +33,10 @@
 -- > $Id: JavaTop15.hs,v 1.12 2007/01/08 18:20:23 aarne Exp $
 -------------------------------------------------------------------
 
+
 module BNFC.Backend.Java ( makeJava ) where
 
+import Prelude hiding((<>))
 -------------------------------------------------------------------
 -- Dependencies.
 -------------------------------------------------------------------
@@ -173,7 +175,7 @@ makefile  dirBase dirAbsyn absynFileNames jlexpar = vcat $
         deps = map outname (results lexmake ++ results parmake) in
         Makefile.mkRule lexerOutClass deps []
     ]++
-  reverse [Makefile.mkRule tar dep [] | 
+  reverse [Makefile.mkRule tar dep [] |
     (tar,dep) <- partialParserGoals dirBase (results parmake)]
   ++[ Makefile.mkRule (dirBase ++ "PrettyPrinter.class")
         [ dirBase ++ "PrettyPrinter.java" ] []
@@ -245,8 +247,8 @@ cuptest = javaTest ["java_cup.runtime"]
             locs
     where locs = "At line \" + String.valueOf(t.l.line_num()) + \","
             ++ " near \\\"\" + t.l.buff() + \"\\\" :"
-          showOpts _ = ["not available."] 
-                    
+          showOpts _ = ["not available."]
+
 
 
 -- | Test class details for ANTLR4
@@ -264,7 +266,7 @@ antlrtest = javaTest [ "org.antlr.v4.runtime","org.antlr.v4.runtime.atn"
                     [x <> "(new CommonTokenStream" <> i <>");"
                     , "p.addErrorListener(new BNFCErrorListener());"
                     ])
-             showOpts 
+             showOpts
              (\pbase pabs enti -> vcat
                     [
                     let rulename = getRuleName (show enti)
@@ -281,7 +283,7 @@ antlrtest = javaTest [ "org.antlr.v4.runtime","org.antlr.v4.runtime.atn"
                         pabs <> "." <> enti <+> "ast = pc.result;"
                     ])
                     "At line \" + e.line + \", column \" + e.column + \" :"
-        where showOpts [] = [] 
+        where showOpts [] = []
               showOpts (x:xs) | normCat x /= x = showOpts xs
                               | otherwise      = text (firstLowerCase $ identCat x) : showOpts xs
 
@@ -505,23 +507,23 @@ partialParserGoals dbas (x:rest) =
         :partialParserGoals dbas rest
 
 -- | Creates the Test.java class.
-javaTest :: [Doc]                   
+javaTest :: [Doc]
             -- ^ list of imported packages
-            -> String 
+            -> String
             -- ^ name of the exception thrown in case of parsing failure
-            -> (String -> [Doc]) 
+            -> (String -> [Doc])
             -- ^ handler for the exception thrown
-            -> (Doc -> Doc -> Doc) 
+            -> (Doc -> Doc -> Doc)
             -- ^ function formulating the construction of the lexer object
-            -> (Doc -> Doc -> Doc) 
+            -> (Doc -> Doc -> Doc)
             -- ^ as above, for parser object
             -> ([Cat] -> [Doc])
-            -- ^ Function processing the names of the methods corresponding 
-            -- to entry points 
-            -> (Doc -> Doc -> Doc -> Doc) 
-            -- ^ function formulating the invocation of the parser tool within 
+            -- ^ Function processing the names of the methods corresponding
+            -- to entry points
+            -> (Doc -> Doc -> Doc -> Doc)
+            -- ^ function formulating the invocation of the parser tool within
             -- Java
-            -> String 
+            -> String
             -- ^ error string output in consequence of a parsing failure
             -> TestClass
 javaTest imports

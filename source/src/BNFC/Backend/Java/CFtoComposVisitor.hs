@@ -20,6 +20,7 @@
 
 module BNFC.Backend.Java.CFtoComposVisitor (cf2ComposVisitor) where
 
+import Prelude hiding((<>))
 import Data.List
 import Data.Either (lefts)
 import BNFC.CF
@@ -119,4 +120,3 @@ prCat user (cat, nt)
 isBasicType :: [UserDef] -> String -> Bool
 isBasicType user v =
     v `elem` (map show user ++ ["Integer","Character","String","Double"])
-

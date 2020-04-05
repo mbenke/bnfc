@@ -19,6 +19,7 @@
 
 module BNFC.Backend.OCaml.CFtoOCamlTest where
 
+import Prelude hiding((<>))
 import Text.PrettyPrint
 
 import BNFC.CF
@@ -58,7 +59,7 @@ ocamlTestfile absM lexM parM printM showM cf =
         , ";;"
         , ""
         , "let showTree (t : " <> topType <> ") : string ="
-        , nest 4 (fsep ( punctuate "^" 
+        , nest 4 (fsep ( punctuate "^"
             [ doubleQuotes "[Abstract syntax]\\n\\n"
             , showFun <+> "t"
             , doubleQuotes "\\n\\n"
@@ -89,5 +90,3 @@ ocamlTestfile absM lexM parM printM showM cf =
         , ";;"
         , ""
         , "main ();;" ]
-
-

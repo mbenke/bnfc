@@ -37,6 +37,7 @@
 -}
 module BNFC.Backend.C.CFtoFlexC (cf2flex, lexComments, cMacros) where
 
+import Prelude hiding((<>))
 import Data.Maybe (fromMaybe)
 
 import BNFC.CF

@@ -19,6 +19,7 @@
 
 module BNFC.Backend.Haskell.CFtoAbstract (cf2Abstract) where
 
+import Prelude hiding((<>))
 import BNFC.CF
 import BNFC.Utils((+++))
 import BNFC.Backend.Haskell.Utils (catToType, catvars)

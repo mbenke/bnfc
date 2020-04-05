@@ -18,6 +18,8 @@
 -}
 module BNFC.Backend.C (makeC) where
 
+import Prelude hiding((<>))
+
 import BNFC.Utils
 import BNFC.CF
 import BNFC.Options
@@ -230,4 +232,3 @@ mkHeaderFile cf cats eps env = unlines
    else ""
   mkFunc s | normCat s == s = identCat s ++ " p" ++ identCat s ++ "(FILE *inp);\n"
   mkFunc _ = ""
-

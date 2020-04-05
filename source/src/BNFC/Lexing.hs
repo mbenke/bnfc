@@ -1,6 +1,7 @@
 module BNFC.Lexing
     ( mkLexer, LexType(..) ) where
 
+import Prelude hiding((<>))
 import Control.Arrow ((&&&))
 import Data.List (inits)
 import AbsBNF (Reg(..))

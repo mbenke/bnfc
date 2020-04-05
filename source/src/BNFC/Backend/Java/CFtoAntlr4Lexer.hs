@@ -38,6 +38,7 @@
 
 module BNFC.Backend.Java.CFtoAntlr4Lexer ( cf2AntlrLex ) where
 
+import Prelude hiding((<>))
 import Text.PrettyPrint
 import BNFC.CF
 import BNFC.Backend.Java.RegToAntlrLexer
